@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Register form</title>
+		<style>
+		* {
+			margin : 5px;
+		}
+		#form {
+			float: left;
+			width: 30%;
+		}
+
+		#form3 {
+			float: right;
+			width : 30%;
+			height : 50%;
+		}
+
+		#form2 {
+			float: right;
+			width : 30%;
+			height : 50%;
+		}
+
+		</style>
+		<script>
+			function addStudent() {
+				var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("form2").innerHTML =
+						this.responseText;
+					}
+				};
+				xhttp.open("GET", "addStudent.html", true);
+				xhttp.send();
+			}
+			function delStudent() {
+				var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("form2").innerHTML =
+						this.responseText;
+					}
+				};
+				xhttp.open("GET", "delStudent.html", true);
+				xhttp.send();
+			}
+			function modStudent() {
+				var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("form2").innerHTML =
+						this.responseText;
+					}
+				};
+				xhttp.open("GET", "modStudent.html", true);
+				xhttp.send();
+			}
+		</script>
+	</head>
+	<body background="bg.jpg">
+		<br><br><br><br><br><br>
+		<div id="form"><br><br>
+			<h1>What do you want to do?</h1><br>
+			<input type="submit" value="Add Student Record" onclick="addStudent()"></form><br>
+			<input type="submit" value="Delete user" onclick="delStudent()"></form><br>
+			<input type="submit" value="Modify user" onclick="modStudent()"></form>
+			</form>
+		</div><br><br>
+		<div id="form2"></div>
+		<div id="form3">asdasdasdasdasdasdasd</div>
+	</body>
+</html>

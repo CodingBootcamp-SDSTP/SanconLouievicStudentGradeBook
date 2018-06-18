@@ -5,14 +5,18 @@
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 	</head>
 	<body background="bg.jpg">
-		<div id="form">
-			<form method="POST" action="login">
-			<label id="username">User ID:</label>
-			<input type="text" id="username" name="user" placeholder="Your Username" />
-			<label id="pass">Password:</label>
-			<input type="password" id="pass" name="password" placeholder="Your Password" />
-			<input type="submit" value="login" />
-			</form>
+		<div id="container">
+		<span class="c" id="triangletop">
+			<div id="form">
+				<form method="POST" action="login">
+				<label id="username">User ID:</label>
+				<input type="text" id="username" name="user" placeholder="Your Username" autocomplete="off" />
+				<label id="pass">Password:</label>
+				<input type="password" id="pass" name="password" placeholder="Your Password" />
+				<input type="submit" value="login" />
+				</form></span>
+			</div></span>
+		<span class="c" id="trianglebottom"></span>
 		</div>
 	</body>
 </html>

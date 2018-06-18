@@ -7,13 +7,13 @@ public class LoginServlet extends HttpServlet
 {
 	String user;
 	String password;
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
+	RequestDispatcher rs;
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		user = request.getParameter("user");
 		password = request.getParameter("password");
 		if(ValidateServlet.checkUser(user, password)) {
-			RequestDispatcher rs = request.getRequestDispatcher("louievic");
+			rs = request.getRequestDispatcher("adminpage.html");
 			rs.forward(request, response);
 		}
 		else {
@@ -21,10 +21,5 @@ public class LoginServlet extends HttpServlet
 			RequestDispatcher rs = request.getRequestDispatcher("index.html");
 			rs.include(request, response);
 		}
-	}
-
-	public void destroy() {
-		user = null;
-		password = null;
 	}
 }
