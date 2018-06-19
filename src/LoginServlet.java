@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet
 			rs.forward(request, response);
 		}
 		else {
-			out.write("<style> label {color:red;}</style><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h3><center><label>Incorrect username or password</label></center></h3>");
+			out.write("<style> label {color:red;}</style><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h3><center><label>Incorrect username or password</label></center></h3>");
 			RequestDispatcher rs = request.getRequestDispatcher("index.html");
 			rs.include(request, response);
 		}

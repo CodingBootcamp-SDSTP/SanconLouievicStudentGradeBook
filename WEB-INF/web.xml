@@ -28,4 +28,31 @@
 		<url-pattern>/deleteservlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>updateStudent</servlet-name>
+		<servlet-class>UpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateStudent</servlet-name>
+		<url-pattern>/updateservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>updaterecord</servlet-name>
+		<servlet-class>UpdateRecord</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updaterecord</servlet-name>
+		<url-pattern>/updaterecord</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>allrecord</servlet-name>
+		<servlet-class>AllRecords</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>allrecord</servlet-name>
+		<url-pattern>/allrecord</url-pattern>
+	</servlet-mapping>
+
 </web-app>

@@ -12,17 +12,11 @@ public class RegisterServlet extends HttpServlet
 	RequestDispatcher rs;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		firstname = request.getParameter("firstname");
 		lastname = request.getParameter("lastname");
 		user = request.getParameter("user");
 		password = request.getParameter("password");
 		if(ValidateServlet.addStudent(firstname, lastname, user, password, 4)) {
-			out.println("Sucessfully Added");
-			response.sendRedirect("adminpage.html");
-			rs.forward(request, response);
-		}
-		else {
 			response.sendRedirect("adminpage.html");
 		}
 	}

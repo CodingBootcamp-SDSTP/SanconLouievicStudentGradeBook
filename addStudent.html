@@ -1,20 +1,26 @@
 <html>
 	<head>
 		<title>Add Student</title>
+		<script>
+			let add = document.getElementById("add");
+			add.onclick = function(){
+				alert("Successfully add");
+			}
+		</script>
 	</head>
 	<body>
 		<div id="container">
 			<div id="form">
 				<form method="POST" action="registerservlet">
 				<label id="first">Firstname: </label>
-				<input type="first" id="first" name="firstname" placeholder="Your firstname" required />
+				<input type="first" id="first" name="firstname" placeholder="Your firstname" autocomplete="off" required /><br>
 				<label id="last">Lastname:</label>
-				<input type="text" id="last" name="lastname" placeholder="Your lastname" required />
+				<input type="text" id="last" name="lastname" placeholder="Your lastname" autocomplete="off" required /><br>
 				<label id="username">Username:</label>
-				<input type="text" id="user" name="user" placeholder="Your Username" autocomplete="off" required />
+				<input type="text" id="user" name="user" placeholder="Your Username" autocomplete="off" autocomplete="off" required /><br>
 				<label id="pass">Password:</label>
-				<input type="password" id="pass" name="password" placeholder="Your Password" required />
-				<input type="submit" value="Add Student" />
+				<input type="password" id="pass" name="password" placeholder="Your Password" required /><br>
+				<input type="submit" id="add" value="Add Student" />
 				</form>
 			</div>
 		</div>
