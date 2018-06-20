@@ -15,7 +15,7 @@ public class AllRecords extends HttpServlet
 			ResultSet rs = stmt.executeQuery("SELECT * FROM students");
 			StringBuilder sb = new StringBuilder("<students>");
 			while(rs.next()) {
-				sb.append("<studentId>"+rs.getString("id")+"</studentId>");
+				sb.append("<studentId>"+rs.getString("studentid")+"</studentId>");
 				sb.append("<firstName>"+rs.getString("firstname")+"</firstName>");
 				sb.append("<lastName>"+rs.getString("lastname")+"</lastName>");
 				sb.append("<username>"+rs.getString("username")+"</username>");

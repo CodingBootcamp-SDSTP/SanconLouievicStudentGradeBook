@@ -9,6 +9,7 @@ public class RegisterServlet extends HttpServlet
 	String lastname;
 	String user;
 	String password;
+	int userlevel;
 	RequestDispatcher rs;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
@@ -16,8 +17,16 @@ public class RegisterServlet extends HttpServlet
 		lastname = request.getParameter("lastname");
 		user = request.getParameter("user");
 		password = request.getParameter("password");
-		if(ValidateServlet.addStudent(firstname, lastname, user, password, 4)) {
-			response.sendRedirect("adminpage.html");
+		userlevel = Integer.parseInt(request.getParameter("userlevel"));
+		switch(userlevel) {
+
+			case 4: if(AddServlet.addStudent(firstname, lastname, user, password, userlevel)) {
+						response.sendRedirect("adminpage.html");
+					}break;
+
+			case 2: if(AddServlet.addFaculty(firstname, lastname, user, password, userlevel)) {
+						response.sendRedirect("adminpage.html");
+					}break;
 		}
 	}
 

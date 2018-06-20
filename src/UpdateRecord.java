@@ -29,7 +29,7 @@ public class UpdateRecord extends HttpServlet
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
-			String query = "UPDATE students SET firstname=?, lastname=?, username=?, password=? WHERE id=?;";
+			String query = "UPDATE students SET firstname=?, lastname=?, username=?, password=? WHERE studentid=?;";
 			as =conn.prepareStatement(query);
 			as.setString(1, fn);
 			as.setString(2, ln);
