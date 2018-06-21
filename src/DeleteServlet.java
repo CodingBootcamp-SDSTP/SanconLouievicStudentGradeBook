@@ -15,20 +15,19 @@ public class DeleteServlet extends HttpServlet
 		id = request.getParameter("id");
 		firstname = request.getParameter("firstname");
 		if(deleteStudent(id, firstname)) {
-			out.println("Sucessfully Deleted");
-			response.sendRedirect("adminpage.html");
+			response.sendRedirect("pages/adminpage.html");
 			rs.forward(request, response);
 		}
 		else {
-			response.sendRedirect("adminpage.html");
+			response.sendRedirect("pages/adminpage.html");
 		}
 	}
 
 	public static boolean deleteStudent(String id, String firstname) {
 		boolean st =false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
+			ConnDB cb = ConnDB.instance();
+			Connection conn = cb.getConnection();
 			String query = "DELETE FROM students WHERE studentid=? && firstname=?;";
 			ps =conn.prepareStatement(query);
 			ps.setString(1, id);

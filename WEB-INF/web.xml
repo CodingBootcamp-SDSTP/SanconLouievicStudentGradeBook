@@ -55,4 +55,22 @@
 		<url-pattern>/allrecord</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>guest</servlet-name>
+		<servlet-class>GuestRegistration</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>guest</servlet-name>
+		<url-pattern>/guestregistration</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
 </web-app>

@@ -6,19 +6,21 @@ import java.io.*;
 public class AddServlet
 {
 	static PreparedStatement ps;
+	static ConnDB cb = ConnDB.instance();
+	static Connection conn = cb.getConnection();
 
-	public static boolean addStudent(String firstname, String lastname, String username, String password, int lv) {
+	public static boolean addStudent(String firstname, String lastname, String username, String password, String subject, int lv, int grade) {
 		boolean c =false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
-			String query = "INSERT INTO students(firstname, lastname, username, password, userlevel) VALUES (?, ?, ?, ?, ?);";
-			ps =conn.prepareStatement(query);
+			String query = "INSERT INTO students(firstname, lastname, username, password, subject, userlevel, grade) VALUES (?, ?, ?, ?, ?, ?, ?);";
+			ps = conn.prepareStatement(query);
 			ps.setString(1, firstname);
 			ps.setString(2, lastname);
 			ps.setString(3, username);
 			ps.setString(4, password);
-			ps.setInt(5, lv);
+			ps.setString(5, subject);
+			ps.setInt(6, lv);
+			ps.setInt(7, grade);
 			ps.executeUpdate();
 			c=true;
 		}
@@ -41,10 +43,8 @@ public class AddServlet
 	public static boolean addFaculty(String firstname, String lastname, String username, String password, int lv) {
 		boolean c =false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
 			String query = "INSERT INTO faculty(firstname, lastname, username, password, userlevel) VALUES (?, ?, ?, ?, ?);";
-			ps =conn.prepareStatement(query);
+			ps = conn.prepareStatement(query);
 			ps.setString(1, firstname);
 			ps.setString(2, lastname);
 			ps.setString(3, username);

@@ -1,24 +1,208 @@
 <html>
-	<head>
-		<title>login form</title>
-		<link rel="icon" href="./icon.jpg">
-		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<head><title>Welcome</title>
+	<style> 
+	* {
+		margin: 0px;
+	}
+
+	.header {
+		background-color: rgb(140, 228, 39);
+	}
+
+	#sign {
+		font-style: italic;
+		color: rgb(140, 228, 39);
+		text-shadow: 2px 1px 5px rgb(0, 0, 0);
+		box-shadow: 2px 2px 10px rgb(132, 207, 46);
+	}
+	.button {
+		display: inline-block;
+		border-radius: 4px;
+		background-color: rgb(112, 189, 25);
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 15px;
+		padding: 10px;
+		width: 100px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 5px;
+	}
+
+	.button span {
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
+	}
+
+	.button span:after {
+		content: '\00bb';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -20px;
+		transition: 0.5s;
+	}
+
+	.button:hover span {
+		padding-right: 25px;
+	}
+
+	.button:hover span:after {
+		opacity: 1;
+		right: 0;
+	}
+	body {
+		margin :0;
+		padding : 0;
+		background-image: url("beige.png");
+		background-size : cover;
+		font-family : sans-serif;
+		overflow-y: hidden;
+	}
+
+	.form {
+		width:300px;
+		height: 300px;
+		font-size : 20px;
+		margin: 50px;
+	}
+
+	.form2 {
+		background-color: rgba(55, 56, 53, 0.815);
+		width: 310px;
+		font-size : 20px;
+		border-radius: 2px;
+		margin: 70px 10px 10px 420px;
+		padding: 100px 40px;
+		text-shadow: 2px 1px 5px rgb(0, 0, 0);
+		color: rgb(140, 228, 39);
+	}
+
+	#regis {
+		text-shadow: 2px 1px 5px  rgb(0, 0, 0);
+		float: center;
+		color: rgb(112, 189, 25);
+	}
+
+	.flex-layout {
+		height: 100%;
+		width:100%;
+		display:flex;
+		align-items: stretch;
+	}
+
+	.flex-layout div {
+		flex-grow:1;
+		align-items: stretch;
+	}
+	span.c {
+		display: inline-block;
+		width: 100%;
+		height: 99.5%;
+		padding: 0px;
+	}
+	#trianglebottom {
+		width: 99.5%;
+		height: 100%;
+		background-image: url("beige.png");
+		border-radius: 4px;
+		float:right;
+		background-size : cover;
+		font-family : sans-serif;
+		overflow-y: hidden;
+	}
+	#triangletop {
+		width: 1%;
+		height: 100%;
+		background-image: url("solidgray.jpg");
+		border-radius: 4px;
+		transition: width 2s;
+		-webkit-transition: width 0.4s;
+		float : left;
+		overflow-x: hidden;
+		background-size : cover;
+		font-family : sans-serif;
+		overflow-y: hidden;
+	}
+	
+	#triangletop:hover {
+		width: 50%;
+	}
+
+	#header {
+		height: 25%;
+	}
+	</style>
+	<script>
+	(function (global) { 
+	if(typeof (global) === "undefined") {
+		throw new Error("Error");
+	}
+	var _hash = "!";
+	var preventBack = function () {
+			global.location.href += "#";
+			global.setTimeout(function () {
+			global.location.href += "!";
+		}, 50);
+	};
+	global.onhashchange = function () {
+		if (global.location.hash !== _hash) {
+			global.location.hash = _hash;
+		}
+	};
+	global.onload = function () {
+	preventBack();
+	document.body.onkeydown = function (e) {
+		var elm = e.target.nodeName.toLowerCase();
+		if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
+			e.preventDefault();
+		}
+
+		e.stopPropagation();
+	};
+	}
+
+	})(window);
+	</script>
 	</head>
-	<body background="bg.jpg">
-		<div id="container">
-		<span class="c" id="triangletop">
-			<div id="form">
-				<form method="POST" action="login">
-				<label id="username">User ID:</label>
-				<input type="text" id="username" name="user" placeholder="Your Username" autocomplete="off" />
-				<label id="pass">Password:</label>
-				<input type="password" id="pass" name="password" placeholder="Your Password" />
-				<input type="submit" value="login" />
-				</form>
-			</div>
-			</span>
-			</div></span>
-		<span class="c" id="trianglebottom"></span>
-		</div>
-	</body>
+<body background="beige.png">
+<div class="header"> <br> <h1>Welcome to Louievic's Computer College<h1><br></div>
+<div class="flex-layout">
+  <span class="c" id="triangletop">
+	<div class="form" id="regis">
+		<center>
+			<h1 id="sign">Sign up</h1><br>
+			<form method="POST" action="guestregistration">
+			<label id="first">Firstname: </label>
+			<input type="first" id="first" name="firstname" placeholder="Your firstname" autocomplete="off" required /><br><br>
+			<label id="last">Lastname:</label>
+			<input type="text" id="last" name="lastname" placeholder="Your lastname" autocomplete="off" required /><br><br>
+			<label id="username">Username:</label>
+			<input type="text" id="user" name="user" placeholder="Your Username" autocomplete="off" required /><br><br>
+			<label id="pass">Password:</label>
+			<input type="password" id="pass" name="password" placeholder="Your Password" required /><br><br>
+			<button class="button" style="vertical-align:middle"><span>Register</span></button>
+			<input type="hidden" id="level" name="userlevel" value="4"/><br>
+			<input type="hidden" id="subject" name="subject" value="--To be Assigned--"/><br>
+			<input type="hidden" id="grade" name="grade" value="0"/><br>
+			</form>
+		</center>
+	</div>
+  </span>
+  <span class="c" id="trianglebottom">
+	<div class="form2" id="login">
+		<form method="POST" action="login">
+			<label id="username">Username:</label>
+			<input type="text" id="username" name="user" placeholder="Your Username" autocomplete="off" /><br><br>
+			<label id="pass">Password:</label>
+			<input type="password" id="pass" name="password" placeholder="Your Password" /><br><br>
+			<center><button class="button" style="vertical-align:middle"><span>Login</span></button></center>
+		</form>
+	</div>
+  </span>
+</div>
+</body>
 </html>

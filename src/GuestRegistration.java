@@ -3,7 +3,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
-public class RegisterServlet extends HttpServlet
+public class GuestRegistration extends HttpServlet
 {
 	String firstname;
 	String lastname;
@@ -22,17 +22,8 @@ public class RegisterServlet extends HttpServlet
 		subject = request.getParameter("subject");
 		userlevel = Integer.parseInt(request.getParameter("userlevel"));
 		grade = Integer.parseInt(request.getParameter("grade"));
-		System.out.println(userlevel);
-		switch(userlevel) {
-			case 4: if(AddServlet.addStudent(firstname, lastname, user, password, subject, userlevel, grade)) {
-						response.sendRedirect("pages/adminpage.html");
-					}break;
-			case 2: if(AddServlet.addFaculty(firstname, lastname, user, password, userlevel)) {
-					response.sendRedirect("pages/adminpage.html");
-			}break;
-			default: {
-				response.sendRedirect("index.html");
-			}break;
+		if(AddServlet.addStudent(firstname, lastname, user, password, subject,userlevel, grade)) {
+			response.sendRedirect("index.html");
 		}
 	}
 

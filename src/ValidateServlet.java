@@ -8,8 +8,8 @@ public class ValidateServlet
 	static PreparedStatement ps;
 	public static int checkUserLevel(String user, String pass) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
+			ConnDB cb = ConnDB.instance();
+			Connection conn = cb.getConnection();
 			ps =conn.prepareStatement("SELECT userlevel FROM useradmin WHERE user=? and password=?");
 			ps.setString(1, user);
 			ps.setString(2, pass);

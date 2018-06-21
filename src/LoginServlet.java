@@ -6,26 +6,24 @@ import java.sql.*;
 
 public class LoginServlet extends HttpServlet
 {
-	String user;
+	String username;
 	String password;
 	RequestDispatcher rs;
-	// HttpSession session;
-	// Object userId;
-	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		user = request.getParameter("user");
+		username = request.getParameter("user");
 		password = request.getParameter("password");
-		if(ValidateServlet.checkUserLevel(user, password) > 0) {
-			int userlevel = ValidateServlet.checkUserLevel(user, password);
+		if(ValidateServlet.checkUserLevel(username, password) > 0) {
+			int userlevel = ValidateServlet.checkUserLevel(username, password);
 			switch(userlevel) {
-				case 1 : response.sendRedirect("adminpage.html"); break;
-				case 2 : response.sendRedirect("facultypage.html");break;
-				default : response.sendRedirect("studentpage.html");break;
+				case 1 : response.sendRedirect("pages/adminpage.html"); break;
+				case 2 : response.sendRedirect("pages/facultypage.html");break;
+				default : response.sendRedirect("pages/studentpage.html");break;
 			}
 		}
 		else {
-			out.write("<style> label {color:red;}</style><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h3><center><label>Incorrect username or password</label></center></h3>");
+			out.write("<script>function myFunction() {alert('Unrecognized username or password');}</script><h3><center><label id='inc'></label></center></h3>");
+			out.write("<script>myFunction()</script>");
 			rs = request.getRequestDispatcher("index.html");
 			rs.include(request, response);
 		}

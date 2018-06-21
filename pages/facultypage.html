@@ -16,45 +16,8 @@
 			float: right;
 			width: 70%;
 		}
-
 		</style>
 		<script>
-			function addStudent() {
-				var xhttp = new XMLHttpRequest();
-					xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("form2").innerHTML =
-						this.responseText;
-					}
-				};
-				xhttp.open("GET", "addStudent.html", true);
-				xhttp.send();
-			}
-
-			function addFaculty() {
-				var xhttp = new XMLHttpRequest();
-					xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("form2").innerHTML =
-						this.responseText;
-					}
-				};
-				xhttp.open("GET", "addFaculty.html", true);
-				xhttp.send();
-			}
-			
-			function delStudent() {
-				var xhttp = new XMLHttpRequest();
-					xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("form2").innerHTML =
-						this.responseText;
-					}
-				};
-				xhttp.open("GET", "delStudent.html", true);
-				xhttp.send();
-			}
-
 			function modStudent() {
 				var xhttp = new XMLHttpRequest();
 					xhttp.onreadystatechange = function() {
@@ -80,12 +43,9 @@
 			}
 		</script>
 	</head>
-	<body background="bg.jpg">
+	<body>
 			<h1>What do you want to do?</h1><br>
 			<div><span class="a">
-				<input type="submit" value="Add Student Account" onclick="addStudent()">
-				<input type="submit" value="Add Faculty Account" onclick="addFaculty()">
-				<input type="submit" value="Delete a Student Record" onclick="delStudent()">
 				<input type="submit" value="Modify a Student Record" onclick="modStudent()">
 				<form method="POST" action="/login/allrecord"><input type="submit" value="List all Students Record" /></form>
 			</span>

@@ -9,8 +9,8 @@ public class AllRecords extends HttpServlet
 		response.setContentType("text/xml");
 		PrintWriter out = response.getWriter();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/louiedb?user=louiedb&"+"password=louiedb&serverTimezone=UTC");
+			ConnDB cb = ConnDB.instance();
+			Connection conn = cb.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM students");
 			StringBuilder sb = new StringBuilder("<students>");
@@ -20,6 +20,8 @@ public class AllRecords extends HttpServlet
 				sb.append("<lastName>"+rs.getString("lastname")+"</lastName>");
 				sb.append("<username>"+rs.getString("username")+"</username>");
 				sb.append("<password>"+rs.getString("password")+"</password>");
+				sb.append("<subject>"+rs.getString("subject")+"</subject>");
+				sb.append("<grade>"+rs.getInt("grade")+"</grade>");
 				sb.append("<userlevel>"+rs.getString("userlevel")+"</userlevel>");
 				sb.append("<endOfDetails>-------------------------------</endOfDetails>");
 			}
