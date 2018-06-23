@@ -24,8 +24,8 @@ public class RegisterServlet extends HttpServlet
 		grade = Integer.parseInt(request.getParameter("grade"));
 		System.out.println(userlevel);
 		switch(userlevel) {
-			case 4: if(AddServlet.addStudent(firstname, lastname, user, password, subject, userlevel, grade)) {
-						response.sendRedirect("pages/adminpage.html");
+			case 4: if(AddServlet.addStudent(firstname, lastname, user, password, subject, userlevel, grade, request, response)) {
+						response.sendRedirect("AdminProfile");
 					}break;
 			case 2: if(AddServlet.addFaculty(firstname, lastname, user, password, userlevel)) {
 					response.sendRedirect("pages/adminpage.html");

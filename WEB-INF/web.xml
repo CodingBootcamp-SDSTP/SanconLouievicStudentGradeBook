@@ -73,4 +73,13 @@
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>adminprofile</servlet-name>
+		<servlet-class>AdminProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adminprofile</servlet-name>
+		<url-pattern>/AdminProfile</url-pattern>
+	</servlet-mapping>
+
 </web-app>

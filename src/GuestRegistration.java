@@ -22,7 +22,7 @@ public class GuestRegistration extends HttpServlet
 		subject = request.getParameter("subject");
 		userlevel = Integer.parseInt(request.getParameter("userlevel"));
 		grade = Integer.parseInt(request.getParameter("grade"));
-		if(AddServlet.addStudent(firstname, lastname, user, password, subject,userlevel, grade)) {
+		if(AddServlet.addStudent(firstname, lastname, user, password, subject,userlevel, grade, request, response)) {
 			response.sendRedirect("index.html");
 		}
 	}
