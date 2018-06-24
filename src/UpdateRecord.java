@@ -21,7 +21,8 @@ public class UpdateRecord extends HttpServlet
 		subject = request.getParameter("subject");
 		grade = Integer.parseInt(request.getParameter("grade"));
 		if(updateRecord(id, firstname, lastname, username, password, subject, grade)) {
-			response.sendRedirect("pages/adminpage.html");
+			AdminProfileServlet.isUpdated();
+			response.sendRedirect("AdminProfile");
 		}
 	}
 

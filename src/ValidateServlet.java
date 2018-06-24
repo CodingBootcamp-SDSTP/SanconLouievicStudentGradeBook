@@ -17,7 +17,7 @@ public class ValidateServlet
 			if(rs.next()) {
 				return(1);
 			}
-			else if(rs.next() == false){
+			else if(rs.next() == false) {
 				ps =conn.prepareStatement("SELECT userlevel FROM faculty WHERE username=? and password=?");
 				ps.setString(1, user);
 				ps.setString(2, pass);

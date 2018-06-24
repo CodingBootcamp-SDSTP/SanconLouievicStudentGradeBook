@@ -12,9 +12,11 @@ public class GuestRegistration extends HttpServlet
 	String subject;
 	int userlevel;
 	int grade;
+	static PrintWriter out;
 	RequestDispatcher rs;
-
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		out=response.getWriter();
 		firstname = request.getParameter("firstname");
 		lastname = request.getParameter("lastname");
 		user = request.getParameter("user");
@@ -22,8 +24,13 @@ public class GuestRegistration extends HttpServlet
 		subject = request.getParameter("subject");
 		userlevel = Integer.parseInt(request.getParameter("userlevel"));
 		grade = Integer.parseInt(request.getParameter("grade"));
-		if(AddServlet.addStudent(firstname, lastname, user, password, subject,userlevel, grade, request, response)) {
-			response.sendRedirect("index.html");
+		if(AddServlet.addStudent(firstname, lastname, user, password, subject,userlevel, grade) > 0) {
+			System.out.println("Already exist");
+			response.sendRedirect("/login");
+		}
+		else {
+			System.out.println("Successfully Added");
+			response.sendRedirect("/login");
 		}
 	}
 

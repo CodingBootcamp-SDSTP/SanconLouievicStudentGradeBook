@@ -9,22 +9,16 @@ public class DeleteServlet extends HttpServlet
 	String firstname;
 	static PreparedStatement ps;
 	RequestDispatcher rs;
-
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		id = request.getParameter("id");
 		firstname = request.getParameter("firstname");
-		if(deleteStudent(id, firstname)) {
-			response.sendRedirect("pages/adminpage.html");
-			rs.forward(request, response);
-		}
-		else {
-			response.sendRedirect("pages/adminpage.html");
-		}
+		deleteStudent(id, firstname);
+		AdminProfileServlet.isDeleted();
+		response.sendRedirect("AdminProfile");
 	}
 
-	public static boolean deleteStudent(String id, String firstname) {
-		boolean st =false;
+	public static void deleteStudent(String id, String firstname) {
 		try {
 			ConnDB cb = ConnDB.instance();
 			Connection conn = cb.getConnection();
@@ -33,21 +27,20 @@ public class DeleteServlet extends HttpServlet
 			ps.setString(1, id);
 			ps.setString(2, firstname);
 			ps.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(ps != null) {
+					ps.close();
+				}
 			}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-			finally {
-				try {
-					if(ps != null) {
-						ps.close();
-					}
-				}
-				catch(Exception e) {
-					e.printStackTrace();
-				}
-			}
-		return st;
+		}
 	}
 
 	public void destroy() {

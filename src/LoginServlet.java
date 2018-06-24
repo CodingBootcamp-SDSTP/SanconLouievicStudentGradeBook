@@ -3,7 +3,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 
-
 public class LoginServlet extends HttpServlet
 {
 	String username;
