@@ -14,6 +14,7 @@ public class RegisterServlet extends HttpServlet
 	int grade;
 	static PrintWriter out;
 	RequestDispatcher rs;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		response.setContentType("text/html");
 		out=response.getWriter();
@@ -26,7 +27,7 @@ public class RegisterServlet extends HttpServlet
 		grade = Integer.parseInt(request.getParameter("grade"));
 		switch(userlevel) {
 			case 4: if(AddServlet.addStudent(firstname, lastname, user, password, subject, userlevel, grade) > 0) {
-						AdminProfileServlet.isExisting();
+						AdminProfileServlet.isIdExisting();
 						response.sendRedirect("AdminProfile");
 					}
 					else {
@@ -35,7 +36,7 @@ public class RegisterServlet extends HttpServlet
 					}
 					break;
 			case 2: if(AddServlet.addFaculty(firstname, lastname, user, password, userlevel) > 0) {
-						AdminProfileServlet.isExisting();
+						AdminProfileServlet.isIdExisting();
 						response.sendRedirect("AdminProfile");
 					}
 					else {

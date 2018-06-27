@@ -9,6 +9,7 @@ public class DeleteServlet extends HttpServlet
 	String firstname;
 	static PreparedStatement ps;
 	RequestDispatcher rs;
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		id = request.getParameter("id");

@@ -6,6 +6,7 @@ import java.io.*;
 public class ValidateServlet
 {
 	static PreparedStatement ps;
+
 	public static int checkUserLevel(String user, String pass) {
 		try {
 			ConnDB cb = ConnDB.instance();

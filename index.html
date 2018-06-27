@@ -15,6 +15,7 @@
 		text-shadow: 2px 1px 5px rgb(0, 0, 0);
 		box-shadow: 2px 2px 10px rgb(132, 207, 46);
 	}
+
 	.button {
 		display: inline-block;
 		border-radius: 4px;
@@ -54,6 +55,7 @@
 		opacity: 1;
 		right: 0;
 	}
+
 	body {
 		margin :0;
 		padding : 0;
@@ -98,12 +100,14 @@
 		flex-grow:1;
 		align-items: stretch;
 	}
+
 	span.c {
 		display: inline-block;
 		width: 100%;
 		height: 99.5%;
 		padding: 0px;
 	}
+
 	#trianglebottom {
 		width: 99.5%;
 		height: 100%;
@@ -114,6 +118,7 @@
 		font-family : sans-serif;
 		overflow-y: hidden;
 	}
+
 	#triangletop {
 		width: 1%;
 		height: 100%;
@@ -127,7 +132,7 @@
 		font-family : sans-serif;
 		overflow-y: hidden;
 	}
-	
+
 	#triangletop:hover {
 		width: 50%;
 	}
@@ -135,43 +140,13 @@
 	#header {
 		height: 25%;
 	}
+
 	</style>
-	<script>
-	(function (global) { 
-	if(typeof (global) === "undefined") {
-		throw new Error("Error");
-	}
-	var _hash = "!";
-	var preventBack = function () {
-			global.location.href += "#";
-			global.setTimeout(function () {
-			global.location.href += "!";
-		}, 50);
-	};
-	global.onhashchange = function () {
-		if (global.location.hash !== _hash) {
-			global.location.hash = _hash;
-		}
-	};
-	global.onload = function () {
-	preventBack();
-	document.body.onkeydown = function (e) {
-		var elm = e.target.nodeName.toLowerCase();
-		if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
-			e.preventDefault();
-		}
-
-		e.stopPropagation();
-	};
-	}
-
-	})(window);
-	</script>
 	</head>
 <body background="beige.png">
 <div class="header"> <br><h1><center>Welcome</center><h1></div>
 <div class="flex-layout">
-  <span class="c" id="triangletop">
+	<span class="c" id="triangletop">
 	<div class="form" id="regis">
 		<center>
 			<h1 id="sign">Sign up</h1><br>
@@ -191,8 +166,8 @@
 			</form>
 		</center>
 	</div>
-  </span>
-  <span class="c" id="trianglebottom">
+	</span>
+	<span class="c" id="trianglebottom">
 	<div class="form2" id="login">
 		<form method="POST" action="login">
 			<label id="username">Username:</label>
@@ -202,7 +177,7 @@
 			<center><button class="button" style="vertical-align:middle"><span>Login</span></button></center>
 		</form>
 	</div>
-  </span>
+	</span>
 </div>
 </body>
 </html>

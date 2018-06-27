@@ -12,6 +12,7 @@ public class UpdateRecord extends HttpServlet
 	String password;
 	String subject;
 	int grade;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		id = request.getParameter("id");
 		firstname = request.getParameter("firstname");

@@ -7,6 +7,7 @@ public class LoginServlet extends HttpServlet
 {
 	String username;
 	String password;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		username = request.getParameter("user");

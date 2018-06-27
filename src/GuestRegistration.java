@@ -14,6 +14,7 @@ public class GuestRegistration extends HttpServlet
 	int grade;
 	static PrintWriter out;
 	RequestDispatcher rs;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		out=response.getWriter();
